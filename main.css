@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+
+:root {
+  --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+  --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+  --Grayish-Blue: hsl(212, 23%, 69%);
+  --Light-Grayish-Blue: hsl(210, 46%, 95%);
+}
+
+/* Josh Comeau css Reste https://www.joshwcomeau.com/css/custom-css-reset/ */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.813rem;
+  position: relative;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+main {
+  width: min(1440px, 100%);
+  background-color: var(--Light-Grayish-Blue);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+img {
+  object-fit: cover;
+}
+h1 {
+  color: var(--Desaturated-Dark-Blue);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+.card {
+  background-color: #fff;
+  width: 90%;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.card-right {
+  padding: 2em;
+}
+
+.card-right p {
+  color: var(--Grayish-Blue);
+  font-size: 1rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.user-info img {
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 1em;
+}
+
+.user-personal-info h2 {
+  font-size: 1rem;
+  color: var(--Very-Dark-Grayish-Blue);
+}
+.icon-share {
+  position: relative;
+  background-color: var(--Light-Grayish-Blue);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 2.5em;
+  cursor: pointer;
+}
+.icon-share img {
+  width: 20px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.share-tab {
+  position: absolute;
+
+  background-color: var(--Very-Dark-Grayish-Blue);
+  width: 100%;
+  /* transform: translateY(-100%); */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  /* opacity: 0; */
+}
+.share-tab p {
+  color: var(--Grayish-Blue);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  padding: 1.5em;
+}
+
+.share-tab span {
+  margin-right: 1.4rem;
+  cursor: pointer;
+}
+
+.share-tab img {
+  cursor: pointer;
+}
+
+.share-tab .icon-share {
+  background-color: var(--Desaturated-Dark-Blue);
+}
+
+.share-tab .icon-share img {
+  filter: brightness(0) invert(1);
+}
+.show {
+  transform: translateY(-100%);
+  transition: all 0.5s ease-in;
+}
+
+.hide {
+  transform: translateY(0);
+  transition: all 0.5 ease-out;
+}
+
+.share-tab2 {
+  position: relative;
+  display: flex;
+  background-color: var(--Very-Dark-Grayish-Blue);
+  padding: 1.5em 3em;
+  gap: 2em;
+  border-radius: 1em;
+  align-items: center;
+  position: absolute;
+  opacity: 0;
+}
+.share-tab2::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 20px solid var(--Very-Dark-Grayish-Blue);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.share-tab2 p {
+  color: var(--Grayish-Blue);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+}
+.share-tab2 img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.show2 {
+  animation-name: showing;
+  animation-duration: 1s;
+  opacity: 1;
+}
+
+/* animation  tab2*/
+@keyframes showing {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 720px) {
+  main {
+    margin: auto;
+  }
+  .card {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+  }
+  .card-left {
+    width: 40%;
+  }
+  .card-left img {
+    width: 100%;
+    height: 100%;
+  }
+  .card-right {
+    width: 60%;
+    padding: 3em;
+  }
+  .card-right h1 {
+    font-size: 1.5rem;
+  }
+  .user-info {
+    margin-top: 2rem;
+  }
+  .icon-share {
+    margin-left: 16rem;
+  }
+}
